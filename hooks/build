@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -eo pipefail
+
+
+VERSION=${SOURCE_BRANCH/master/dev-master}
+
+docker build --build-arg VERSION="$VERSION" -t "$IMAGE_NAME" -f "$DOCKERFILE_PATH" .
